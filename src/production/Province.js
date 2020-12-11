@@ -57,4 +57,30 @@ class Province{
     set price(arg) {
         this._price = parseInt(arg);
     }
+
+    get shortfall() {
+        return this._demand - this.totalProduction;
+    }
+
+    get profit() {
+        return this.demandValue - this.price;
+    }
+
+    get satisfiedDemand() {
+        return Math.min(this._demand, this.totalProduction);
+    }
+
+    get demandCoat() {
+        let remainingDemand = this.demand;
+        let result = 0;
+        this.producers
+            .sort((a, b) => a.cost - b.cost)
+            .forEach(p => {
+                const contribution = Math.min(remainingDemand, p.production);
+                remainingDemand -= contribution;
+                result += contribution * p.cost;
+            });
+        return result;
+    }
+
 }
