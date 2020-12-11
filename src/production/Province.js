@@ -25,4 +25,36 @@ class Province{
         this._producers.push(arg);
         this._totalProduction += arg.production;
     }
+
+    get name() {
+        return this._name;
+    }
+
+    get producers(){
+        return this._producers.slice();
+    }
+
+    get totalProduction(){
+        return this._totalProduction;
+    }
+
+    set totalProduction(arg){
+        this._totalProduction = arg;
+    }
+
+    get demand() {
+        return this._demand;
+    }
+
+    set demand(arg) {
+        this._demand = parseInt(arg);
+    }
+
+    get price() {
+        return this._price;
+    }
+
+    set price(arg) {
+        this._price = parseInt(arg);
+    }
 }
