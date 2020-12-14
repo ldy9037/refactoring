@@ -20,4 +20,9 @@ describe('province', function(){
        const asia = new Province(sampleProvinceData());
        (asia.shortfall).should.be.equal(5);
    })
+
+    it('profit', function () {
+        const asia = new Province(sampleProvinceData());
+        (asia.profit).should.be.equal(480);
+    });
 });
