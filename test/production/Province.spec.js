@@ -16,13 +16,17 @@ function sampleProvinceData(){
 
 
 describe('province', function(){
-   it('shortfall', function(){
-       const asia = new Province(sampleProvinceData());
+   let asia;
+
+   beforeEach(function (){
+      asia = new Province(sampleProvinceData());
+   });
+
+    it('shortfall', function(){
        (asia.shortfall).should.be.equal(5);
    })
 
     it('profit', function () {
-        const asia = new Province(sampleProvinceData());
         (asia.profit).should.be.equal(480);
     });
 });
