@@ -29,4 +29,10 @@ describe('province', function(){
     it('profit', function () {
         (asia.profit).should.be.equal(480);
     });
+
+    it('change production', function(){
+       asia.producers[0].production = 20;
+        (asia.shortfall).should.be.equal(-6);
+        (asia.profit).should.be.equal(580);
+    });
 });
