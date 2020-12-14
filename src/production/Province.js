@@ -1,15 +1,4 @@
-function sampleProvinceData(){
-    return {
-        name: "Asia",
-        producers: [
-            {name: "Byzantium", cost: 10, production: 9},
-            {name: "Attalia",   cost: 12, production: 10},
-            {name: "Sinope",    cost: 10, production: 6},
-        ],
-        demand: 30,
-        price: 20
-    }
-}
+const Producer = require('./Producer');
 
 class Province{
     constructor(doc) {
@@ -18,7 +7,7 @@ class Province{
         this._totalProduction = 0;
         this._demand = doc.demand;
         this._price = doc.price;
-        doc.producers.forEach(d => this.addProducer(new Producer(this.d)));
+        doc.producers.forEach(d => this.addProducer(new Producer(this, d)));
     }
 
     addProducer(arg) {
@@ -88,3 +77,5 @@ class Province{
     }
 
 }
+
+module.exports = Province;
