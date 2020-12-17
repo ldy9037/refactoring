@@ -35,4 +35,55 @@ describe('province', function(){
         (asia.shortfall).should.be.equal(-6);
         (asia.profit).should.be.equal(580);
     });
+
+    it('zero demand', function(){
+        asia.demand = 0;
+        (asia.shortfall).should.be.equal(-25);
+        (asia.profit).should.be.equal(-20);
+    });
+
+    it('nagative demand', function(){
+        asia.demand = -1;
+        (asia.shortfall).should.be.equal(-26);
+        (asia.profit).should.be.equal(-40);
+    });
+
+    it('empty string demand', function(){
+        asia.demand = "";
+        (asia.shortfall).should.be.eql(NaN);
+        (asia.profit).should.be.eql(NaN);
+    });
+});
+
+describe('no producers', function(){
+   let noProducers;
+   beforeEach(function(){
+       const data = {
+         name: "No producers",
+         producers: [],
+         demand: 30,
+         price: 20
+       };
+
+       noProducers = new Province(data);
+   })
+
+    it('shortfall', function(){
+        (noProducers.shortfall).should.be.equal(30);
+    });
+
+    it('profit', function(){
+       (noProducers.profit).should.be.equal(-20);
+    });
+
+    it('string for producers', function (){
+       const data = {
+         name : "String producers",
+         producers : "",
+         demand: 30,
+         price: 20
+       };
+       const prov = new Province(data);
+        (prov.shortfall).equal(0);
+    });
 });
