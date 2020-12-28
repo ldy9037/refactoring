@@ -3,12 +3,16 @@ class Owing{
         this._invoice = aInvoice;
     }
 
-    print() {
-        let outstanding = 0;
-
+    printBanner() {
         console.log("******************");
         console.log("***** 고객 채무 *****");
         console.log("******************");
+    }
+
+    print() {
+        let outstanding = 0;
+
+        this.printBanner();
 
         for (const o of this._invoice.orders) {
             outstanding += o.amount;
@@ -21,9 +25,6 @@ class Owing{
         console.log(`마감일: ${this._invoice.dueDate.toLocaleDateString()}`);
     }
 
-    printBanner(){
-
-    }
 }
 
 module.exports = Owing;
