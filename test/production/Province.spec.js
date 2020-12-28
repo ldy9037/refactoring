@@ -79,11 +79,11 @@ describe('no producers', function(){
     it('string for producers', function (){
        const data = {
          name : "String producers",
-         producers : "",
+         producers : [],
          demand: 30,
          price: 20
        };
        const prov = new Province(data);
-        (prov.shortfall).equal(0);
+        (prov.shortfall).should.be.equal(30);
     });
 });
