@@ -16,6 +16,10 @@ class Owing{
         console.log(`마감일: ${this._invoice.dueDate.toLocaleDateString()}`);
     }
 
+    recordDueDate() {
+        this._invoice.dueDate = new Date(2020, 11, 15);
+    }
+
     print() {
         this.printBanner();
 
@@ -23,8 +27,7 @@ class Owing{
             this._outstanding += o.amount;
         }
 
-        this._invoice.dueDate = new Date(2020, 11, 15);
-
+        this.recordDueDate();
         this.printDetails();
     }
 
