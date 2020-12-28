@@ -1,3 +1,6 @@
+const Owing = require('../../src/refactoring/Owing');
+const should = require('should');
+
 const Clock = {
     today: new Date('2020-12-28 08:19:00')
 };
@@ -33,3 +36,15 @@ function printOwing(aInvoice) {
     console.log(`마감일: ${aInvoice.dueDate.toLocaleDateString()}`);
 }
 
+describe('Owing', function (){
+
+    let owing;
+
+    beforeEach(function (){
+       owing =  new Owing();
+    });
+
+   it('print', function (){
+        owing.print(invoice)
+   });
+});
