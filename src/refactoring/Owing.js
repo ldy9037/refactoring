@@ -20,17 +20,18 @@ class Owing{
         this._invoice.dueDate = new Date(2020, 11, 15);
     }
 
-    print() {
-        this.printBanner();
-
+    calculateOutstanding() {
         for (const o of this._invoice.orders) {
             this._outstanding += o.amount;
         }
+    }
 
+    print() {
+        this.printBanner();
+        this.calculateOutstanding();
         this.recordDueDate();
         this.printDetails();
     }
-
 }
 
 module.exports = Owing;
