@@ -1,6 +1,7 @@
 class Owing{
     constructor(aInvoice) {
         this._invoice = aInvoice;
+        this._outstanding = 0;
     }
 
     printBanner() {
@@ -9,20 +10,22 @@ class Owing{
         console.log("******************");
     }
 
-    print() {
-        let outstanding = 0;
+    printDetails() {
+        console.log(`고객명: ${this._invoice.customer}`);
+        console.log(`채무액: ${this._outstanding}`);
+        console.log(`마감일: ${this._invoice.dueDate.toLocaleDateString()}`);
+    }
 
+    print() {
         this.printBanner();
 
         for (const o of this._invoice.orders) {
-            outstanding += o.amount;
+            this._outstanding += o.amount;
         }
 
         this._invoice.dueDate = new Date(2020, 11, 15);
 
-        console.log(`고객명: ${this._invoice.customer}`);
-        console.log(`채무액: ${outstanding}`);
-        console.log(`마감일: ${this._invoice.dueDate.toLocaleDateString()}`);
+        this.printDetails();
     }
 
 }
