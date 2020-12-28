@@ -20,3 +20,5 @@ class Owing{
         console.log(`마감일: ${aInvoice.dueDate.toLocaleDateString()}`);
     }
 }
+
+module.exports = Owing;
