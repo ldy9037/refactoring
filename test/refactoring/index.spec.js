@@ -17,10 +17,10 @@ describe('Owing', function (){
     let owing;
 
     beforeEach(function (){
-       owing =  new Owing();
+       owing =  new Owing(invoice);
     });
 
    it('print', function (){
-        owing.print(invoice)
+        owing.print()
    });
 });
